@@ -56,11 +56,13 @@ class MHomeClientProtocol(WebSocketClientProtocol):
             print("Switching on...")
             print(query.parameters)
             print(query.user)
+            self.sendMessage("DATA #staus ON @" + query.user)
             # TODO call GPIO client to switch on
         elif query.command == ":PUT":
             print("Switching off...")
             print(query.parameters)
             print(query.user)
+            self.sendMessage("DATA #staus OFF @" + query.user)
             # TODO call GPIO client to switch off
 
     def onClose(self, wasClean, code, reason):
